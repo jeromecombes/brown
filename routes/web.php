@@ -18,3 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/semester', 'SemestersController@index')->name('semester_index');
+Route::post('/semester', 'SemestersController@session')->name('semester_session');
