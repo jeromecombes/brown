@@ -1,4 +1,4 @@
-@extends('layouts.container')
+@extends('layouts.app')
 
 @section('panel-heading')
   Welcome to the Brown in France Database
