@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.myApp')
 
 @section('panel-heading')
   Courses - {{ session('semester_name') }}
