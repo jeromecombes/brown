@@ -5,8 +5,9 @@
 @endsection
 
 @section('content')
-Please choose a semester
+Please select a semester to continue ...
 {!! Form::open(array('route' => 'semester_session', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
+{{ csrf_field() }}
 
     <div class='form-group'>
     {!! Form::label('semester', 'Semester:', ['class' => 'col-md-4 control-label']) !!}

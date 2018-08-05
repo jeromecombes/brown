@@ -31,17 +31,14 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
-
-                    @if (Auth::check() and Auth::user()->admin)
-                      @include('includes.admin_navbar')
-                    @endif
-
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                      @if (Auth::check() and Auth::user()->admin)
+                        @include('includes.admin_navbar')
+                      @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
