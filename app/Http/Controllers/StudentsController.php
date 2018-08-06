@@ -19,6 +19,16 @@ class StudentsController extends Controller
   }
 
   /**
+   * Display add student form
+   *
+   * @return Response
+   */
+  public function add(Request $request)
+  {
+    return view('studentsAdd');
+  }
+
+  /**
    * Display a listing of the resource.
    *
    * @return Response
@@ -32,5 +42,24 @@ class StudentsController extends Controller
 
     return view('students', compact('students'));
   }
+
+  /**
+   * Display add student form
+   *
+   * @return Response
+   */
+  public function create(Request $data)
+  {
+    $user = User::firstOrNew(array('email' => $data['email']));
+    $user->gender = $data->gender;
+    $user->name = $data->name;
+    $user->firstname = $data->firstname;
+    $user->semester1 = $data->semester;
+    $user->password = bcrypt('password');
+    $user->save();
+    
+    return redirect('students');
+  }
+
 
 }

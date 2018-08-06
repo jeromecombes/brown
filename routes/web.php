@@ -23,5 +23,7 @@ Route::get('/evaluations', 'EvaluationsController@index')->name('evaluations');
 Route::get('/grades', 'GradesController@index')->name('grades');
 Route::get('/housing', 'HousingController@index')->name('housing');
 Route::get('/semester', 'SemestersController@index')->name('semester');
-Route::post('/semester', 'SemestersController@session')->name('semester_session');
+Route::post('/semester', 'SemestersController@session')->name('semester.session');
 Route::get('/students', 'StudentsController@index')->name('students');
+Route::get('/students/add', 'StudentsController@add')->name('students.add');
+Route::post('/students/create', 'StudentsController@create')->name('students.create');

@@ -32,5 +32,6 @@
   <p>No student found.</p>
 @endif
 
+<a class="btn btn-primary" href="{{ route('students.add') }}"> Add </a>
 
 @endsection
