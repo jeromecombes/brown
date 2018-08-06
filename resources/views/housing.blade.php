@@ -1,4 +1,4 @@
-@extends('layouts.myApp')
+@extends('layouts.md8')
 
 @section('panel-heading')
   Housing - {{ session('semester_name') }}

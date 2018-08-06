@@ -112,7 +112,7 @@ class SemestersController extends Controller
     session(['semester' => $semester]);
     session(['semester_name' => Semester::find($semester)->name]);
 
-    return redirect('home');
+    return redirect('students');
   }
 }
 

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Semester;
+use Illuminate\Support\Facades\Auth;
 
 
 class CheckSemester
@@ -20,7 +21,7 @@ class CheckSemester
         $semester = $request->session()->get('semester');
         $exist = Semester::find($semester);
         
-        if(empty($semester) or !$exist)
+        if(Auth::user()->admin and (empty($semester) or !$exist))
           {
           return redirect('/semester');
           }

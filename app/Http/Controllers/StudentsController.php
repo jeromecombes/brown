@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Semester;
+use App\User;
 
 class StudentsController extends Controller
 {
@@ -25,7 +25,12 @@ class StudentsController extends Controller
    */
   public function index(Request $request)
   {
-    return view('students');
+    // Semester 1
+    $students = User::where('semester1', session('semester'))->where('admin', 0)->get();
+    // Semester 2
+    $students = $students->merge( User::where('semester2', session('semester'))->where('admin', 0)->get() );
+
+    return view('students', compact('students'));
   }
 
 }
