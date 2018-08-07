@@ -19,16 +19,6 @@ class StudentsController extends Controller
   }
 
   /**
-   * Display add student form
-   *
-   * @return Response
-   */
-  public function add(Request $request)
-  {
-    return view('studentsAdd');
-  }
-
-  /**
    * Display a listing of the resource.
    *
    * @return Response
@@ -44,11 +34,21 @@ class StudentsController extends Controller
   }
 
   /**
-   * Display add student form
+   * Show the form for creating a new resource.
    *
    * @return Response
    */
-  public function create(Request $data)
+  public function create()
+  {
+    return view('studentsForm');
+  }
+
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @return Response
+   */
+  public function store(Request $data)
   {
     $user = User::firstOrNew(array('email' => $data['email']));
     $user->gender = $data->gender;
@@ -57,9 +57,52 @@ class StudentsController extends Controller
     $user->semester1 = $data->semester;
     $user->password = bcrypt('password');
     $user->save();
-    
+
     return redirect('students');
   }
 
+  /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function show($id)
+  {
+    echo "show ".$id;
+  }
+
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function edit($id)
+  {
+    echo "edit ".$id;
+  }
+
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function update()
+  {
+
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function destroy()
+  {
+
+  }
 
 }

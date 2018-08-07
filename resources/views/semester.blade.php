@@ -8,7 +8,7 @@
 
 <p>Please select a semester to continue ...</p>
 
-{!! Form::open(array('route' => 'semester.session', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
+{!! Form::open(array('route' => 'semesters.session', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
 
     <div class='form-group'>
       {!! Form::label('semester', 'Semester:', ['class' => 'col-md-4 control-label']) !!}

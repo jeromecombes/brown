@@ -18,12 +18,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/courses', 'CoursesController@index')->name('courses');
-Route::get('/evaluations', 'EvaluationsController@index')->name('evaluations');
-Route::get('/grades', 'GradesController@index')->name('grades');
-Route::get('/housing', 'HousingController@index')->name('housing');
-Route::get('/semester', 'SemestersController@index')->name('semester');
-Route::post('/semester', 'SemestersController@session')->name('semester.session');
-Route::get('/students', 'StudentsController@index')->name('students');
-Route::get('/students/add', 'StudentsController@add')->name('students.add');
-Route::post('/students/create', 'StudentsController@create')->name('students.create');
+Route::get('/courses', 'CoursesController@index')->name('courses.index');
+Route::get('/evaluations', 'EvaluationsController@index')->name('evaluations.index');
+Route::get('/grades', 'GradesController@index')->name('grades.index');
+Route::get('/housing', 'HousingController@index')->name('housing.index');
+
+Route::get('/semester', 'SemestersController@index')->name('semesters.index');
+Route::post('/semester', 'SemestersController@session')->name('semesters.session');
+
+Route::get('/students', 'StudentsController@index')->name('students.index');
+Route::get('/students/create', 'StudentsController@create')->name('students.create');
+Route::post('/students', 'StudentsController@store')->name('students.store');
+Route::get('/students/{id}', 'StudentsController@show')->name('students.show');
+Route::get('/students/{id}/edit', 'StudentsController@edit')->name('students.edit');
+Route::put('/students/{id}', 'StudentsController@update')->name('students.update');
+Route::delete('/students/{id}', 'StudentsController@destroy')->name('students.destroy');
