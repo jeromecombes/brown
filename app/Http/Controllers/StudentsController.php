@@ -48,13 +48,14 @@ class StudentsController extends Controller
    *
    * @return Response
    */
-  public function store(Request $data)
+  public function store(Request $request)
   {
-    $user = User::firstOrNew(array('email' => $data['email']));
-    $user->gender = $data->gender;
-    $user->name = $data->name;
-    $user->firstname = $data->firstname;
-    $user->semester1 = $data->semester;
+    $request->flash();
+    $user = User::firstOrNew(array('email' => $request['email']));
+    $user->gender = $request->gender;
+    $user->name = $request->name;
+    $user->firstname = $request->firstname;
+    $user->semester1 = $request->semester;
     $user->password = bcrypt('password');
     $user->save();
 
@@ -80,7 +81,8 @@ class StudentsController extends Controller
    */
   public function edit($id)
   {
-    echo "edit ".$id;
+    $student = User::find($id);
+    return view('studentsForm', compact("student"));
   }
 
   /**
@@ -89,8 +91,19 @@ class StudentsController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update()
+  public function update(Request $request, $id)
   {
+    $request->flash();
+
+    $user = User::find($id);
+    $user->gender = $request->gender;
+    $user->name = $request->name;
+    $user->firstname = $request->firstname;
+    $user->semester1 = $request->semester;
+    $user->student_id = $request->student_id;
+    $user->update();
+
+    return redirect('students');
 
   }
 
