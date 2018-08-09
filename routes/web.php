@@ -26,6 +26,7 @@ Route::get('/housing', 'HousingController@index')->name('housing.index');
 Route::get('/semester', 'SemestersController@index')->name('semesters.index');
 Route::post('/semester', 'SemestersController@session')->name('semesters.session');
 
+Route::get('/students/data', 'StudentsController@data')->name('students.data');
 Route::get('/students', 'StudentsController@index')->name('students.index');
 Route::get('/students/create', 'StudentsController@create')->name('students.create');
 Route::post('/students', 'StudentsController@store')->name('students.store');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Yajra\Datatables\Datatables;
 
 class StudentsController extends Controller
 {
@@ -30,7 +31,8 @@ class StudentsController extends Controller
     // Semester 2
     $students = $students->merge( User::where('semester2', session('semester'))->where('admin', 0)->get() );
 
-    return view('students', compact('students'));
+    return view('students.index', compact('students'));
+
   }
 
   /**
@@ -40,7 +42,7 @@ class StudentsController extends Controller
    */
   public function create()
   {
-    return view('studentsForm');
+    return view('students.form');
   }
 
   /**
@@ -70,7 +72,9 @@ class StudentsController extends Controller
    */
   public function show($id)
   {
-    echo "show ".$id;
+    echo "Show ".$id;
+    echo "<br/>";
+    echo "TODO";
   }
 
   /**
@@ -82,7 +86,7 @@ class StudentsController extends Controller
   public function edit($id)
   {
     $student = User::find($id);
-    return view('studentsForm', compact("student"));
+    return view('students.form', compact("student"));
   }
 
   /**
@@ -116,6 +120,21 @@ class StudentsController extends Controller
   public function destroy()
   {
 
+  }
+
+  /**
+  * Process datatables ajax request.
+  *
+  * @return \Illuminate\Http\JsonResponse
+  */
+  public function data()
+  {
+      // Semester 1
+      $students = User::where('semester1', session('semester'))->where('admin', 0)->get();
+      // Semester 2
+      $students = $students->merge( User::where('semester2', session('semester'))->where('admin', 0)->get() );
+
+      return DataTables::of($students)->make(true);
   }
 
 }
