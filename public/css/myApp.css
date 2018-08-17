@@ -7,6 +7,10 @@
     text-align: center;
 }
 
+hr {
+  border-top : 1px solid #ccc;
+}
+
 .icon{
   display: inline-block;
   width:20px;

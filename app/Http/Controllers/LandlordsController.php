@@ -48,6 +48,32 @@ class LandlordsController extends Controller
       $landlords->email = $request->email;
       $landlords->cellphone = $request->cellphone;
       $landlords->landline = $request->landline;
+      $landlords->lastname2 = $request->lastname2;
+      $landlords->firstname2 = $request->firstname2;
+      $landlords->email2 = $request->email2;
+      $landlords->cellphone2 = $request->cellphone2;
+      $landlords->landline2 = $request->landline2;
+      $landlords->lastname3 = $request->lastname3;
+      $landlords->firstname3 = $request->firstname3;
+      $landlords->email3 = $request->email3;
+      $landlords->cellphone3 = $request->cellphone3;
+      $landlords->landline3 = $request->landline3;
+      $landlords->type = $request->type;
+      $landlords->subway = $request->subway;
+      $landlords->borough = $request->borough;
+      $landlords->rental = $request->rental;
+      $landlords->kitchen = $request->kitchen;
+      $landlords->bathroom = $request->bathroom;
+      $landlords->internet = $request->internet;
+      $landlords->heater = $request->heater;
+      $landlords->charge = $request->charge;
+      $landlords->deposit = $request->deposit;
+      $landlords->notes = $request->notes;
+      $landlords->smoker = $request->smoker;
+      $landlords->pets= $request->pets;
+      $landlords->children= $request->children;
+      $landlords->boy_girl= $request->boy_girl;
+
       $landlords->save();
 
       return redirect('housing/landlords');
@@ -89,16 +115,41 @@ class LandlordsController extends Controller
     public function update(Request $request, $id)
     {
       $request->flash();
-
       $landlords = Landlords::find($id);
       $landlords->lastname = $request->lastname;
       $landlords->firstname = $request->firstname;
-      $landlords->street = $request->street;
-      $landlords->zip = $request->zip;
-      $landlords->city = $request->city;
       $landlords->email = $request->email;
       $landlords->cellphone = $request->cellphone;
       $landlords->landline = $request->landline;
+      $landlords->lastname2 = $request->lastname2;
+      $landlords->firstname2 = $request->firstname2;
+      $landlords->email2 = $request->email2;
+      $landlords->cellphone2 = $request->cellphone2;
+      $landlords->landline2 = $request->landline2;
+      $landlords->street = $request->street;
+      $landlords->zip = $request->zip;
+      $landlords->city = $request->city;
+      $landlords->lastname3 = $request->lastname3;
+      $landlords->firstname3 = $request->firstname3;
+      $landlords->email3 = $request->email3;
+      $landlords->cellphone3 = $request->cellphone3;
+      $landlords->landline3 = $request->landline3;
+      $landlords->type = $request->type;
+      $landlords->subway = $request->subway;
+      $landlords->borough = $request->borough;
+      $landlords->rental = $request->rental;
+      $landlords->kitchen = $request->kitchen;
+      $landlords->bathroom = $request->bathroom;
+      $landlords->internet = $request->internet;
+      $landlords->heater = $request->heater;
+      $landlords->charge = $request->charge;
+      $landlords->deposit = $request->deposit;
+      $landlords->notes = $request->notes;
+      $landlords->smoker = $request->smoker;
+      $landlords->pets= $request->pets;
+      $landlords->children= $request->children;
+      $landlords->boy_girl= $request->boy_girl;
+
       $landlords->update();
 
       return redirect('housing/landlords');
