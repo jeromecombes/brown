@@ -13,9 +13,13 @@
     <!-- Styles -->
     <!-- App -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- myApp -->
-    <link href="{{ asset('css/myApp.css') }}" rel="stylesheet">
     <!-- DataTables -->
     <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css" rel="stylesheet">
-
+    <!-- Jquery-UI -->
+    <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
+    <!-- DataTables JQuery-ui-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.jqueryui.min.css') }}"/>
+    <!-- myApp -->
+    <link href="{{ asset('css/myApp.css') }}" rel="stylesheet">
+ 
 </head>

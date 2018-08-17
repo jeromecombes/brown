@@ -1,11 +1,11 @@
 @extends('layouts.md8')
 
 @section('panel-heading')
-  Welcome to the Brown in France Database
+  @lang('general.welcome_database')
 @endsection
 
 @section('content')
-  You are logged in!
+  @lang('general.you_are_login')
   <br/>
-  You choosed the semester {{ $semester }}.
+  @lang('general.you_choosed_semester', ['name' => $semester ])
 @endsection

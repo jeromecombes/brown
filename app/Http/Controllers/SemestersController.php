@@ -38,7 +38,7 @@ class SemestersController extends Controller
       $current_id = Semester::where('name', $current_semester)->first()->id;
       }
 
-    return view('semester', compact('semesters', 'current_id'));
+    return view('semesters.index', compact('semesters', 'current_id'));
   }
 
   /**

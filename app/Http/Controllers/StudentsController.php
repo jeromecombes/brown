@@ -119,11 +119,10 @@ class StudentsController extends Controller
    */
   public function destroy($id)
   {
-    error_log("ok $id");
     $user = User::find($id);
     $user->delete();
-    return response()->json($user);
 
+    return redirect('students');
   }
 
   /**

@@ -110,9 +110,12 @@ class LandlordsController extends Controller
      * @param  \App\Landlords  $landlords
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Landlords $landlords)
+    public function destroy($id)
     {
-        //
+      $landlord = Landlords::find($id);
+      $landlord->delete();
+
+      return redirect('housing/landlords');
     }
     
       /**
