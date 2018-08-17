@@ -24,6 +24,6 @@ class HousingController extends Controller
    */
   public function index(Request $request)
   {
-    return view('housing');
+    return view('housing.index');
   }
 }

@@ -10,6 +10,7 @@
   <table class='table table-bordered table-striped' id='students-table'>
     <thead>
       <tr>
+        <th> &nbsp; </th>
         <th> Lastname </th>
         <th> Firstname </th>
         <th> Email </th>
@@ -36,6 +37,8 @@ $(function() {
         headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'},
         ajax: '{!! url('students/data') !!}',
         columns: [
+            { data: null, name: 'id', render: function ( data, type, row ) { 
+              return '<a href="/students/'+data.id+'/edit"><span class="icon icon-edit"></span></a> <a href="javascript:delete_student('+data.id+');"><span class="icon icon-delete"></span></a>' }},
             { data: 'name', name: 'name' },
             { data: 'firstname', name: 'firstname' },
             { data: 'email', name: 'email' },
@@ -43,5 +46,19 @@ $(function() {
         ]
     });
 });
+
+function delete_student(id){
+  if(confirm('Do you really want to delete this student ?')){
+    $.ajax({
+      type: 'DELETE',
+      url: '/students/'+id,
+      dataType: 'json',
+      success: function(){
+        alert('The student has been deleted !');
+      }
+    });
+  }
+}
+
 </script>
 @endpush

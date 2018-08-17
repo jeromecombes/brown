@@ -117,8 +117,12 @@ class StudentsController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function destroy()
+  public function destroy($id)
   {
+    error_log("ok $id");
+    $user = User::find($id);
+    $user->delete();
+    return response()->json($user);
 
   }
 

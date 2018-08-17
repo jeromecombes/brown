@@ -13,6 +13,8 @@
     <!-- Styles -->
     <!-- App -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- myApp -->
+    <link href="{{ asset('css/myApp.css') }}" rel="stylesheet">
     <!-- DataTables -->
     <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css" rel="stylesheet">
 

@@ -177,7 +177,8 @@
 
 
 <div class='form-group'>
-    <div class="col-md-12 col-md-offset-5">
+    <div class="col-md-12 center">
+        {!! Form::button('Back',['class' => 'btn btn-primary', 'onclick' => 'javascript:window.location.href = "/students";']) !!}
         {!! Form::submit('Submit',['class' => 'btn btn-primary']) !!}
     </div>
 </div>
