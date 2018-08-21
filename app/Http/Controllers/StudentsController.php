@@ -61,7 +61,7 @@ class StudentsController extends Controller
     $user->password = bcrypt('password');
     $user->save();
 
-    return redirect('students');
+    return redirect('students')->with('status', 'general.store_student_ok');;
   }
 
   /**
@@ -107,7 +107,7 @@ class StudentsController extends Controller
     $user->student_id = $request->student_id;
     $user->update();
 
-    return redirect('students');
+    return redirect('students')->with('status', 'general.update_student_ok');
 
   }
 
@@ -122,7 +122,7 @@ class StudentsController extends Controller
     $user = User::find($id);
     $user->delete();
 
-    return redirect('students');
+    return redirect('students')->with('status', 'general.destroy_student_ok');;
   }
 
   /**

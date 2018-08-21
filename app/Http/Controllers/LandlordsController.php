@@ -76,7 +76,7 @@ class LandlordsController extends Controller
 
       $landlords->save();
 
-      return redirect('housing/landlords');
+      return redirect('housing/landlords')->with('status', 'general.store_landlord_ok');
 
     }
 
@@ -152,7 +152,7 @@ class LandlordsController extends Controller
 
       $landlords->update();
 
-      return redirect('housing/landlords');
+      return redirect('housing/landlords')->with('status', 'general.update_landlord_ok');
     }
 
     /**
@@ -166,7 +166,7 @@ class LandlordsController extends Controller
       $landlord = Landlords::find($id);
       $landlord->delete();
 
-      return redirect('housing/landlords');
+      return redirect('housing/landlords')->with('status', 'general.destroy_landlord_ok');
     }
     
       /**
