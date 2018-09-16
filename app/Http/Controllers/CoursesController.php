@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Yajra\Datatables\Datatables;
 
 class CoursesController extends Controller
 {
@@ -24,7 +26,12 @@ class CoursesController extends Controller
    */
   public function index(Request $request)
   {
-    return view('courses');
+    // Semester 1
+    $students = User::where('semester1', session('semester'))->where('admin', 0)->get();
+    // Semester 2
+    $students = $students->merge( User::where('semester2', session('semester'))->where('admin', 0)->get() );
+
+    return view('courses.index', compact('students'));
   }
 
 }

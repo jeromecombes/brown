@@ -18,7 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/courses', 'CoursesController@index')->name('courses.index');
 Route::get('/evaluations', 'EvaluationsController@index')->name('evaluations.index');
 Route::get('/grades', 'GradesController@index')->name('grades.index');
 
@@ -38,7 +37,6 @@ Route::delete('/students/{id}', 'StudentsController@destroy')->name('students.de
 
 /** @housing */
 Route::get('/housing', 'HousingController@index')->name('housing.index');
-
 Route::get('/housing/landlords/data', 'LandlordsController@data')->name('landlords.data');
 Route::get('/housing/landlords', 'LandlordsController@index')->name('landlords.index');
 Route::get('/housing/landlords/create', 'LandlordsController@create')->name('landlords.create');
@@ -47,3 +45,6 @@ Route::get('/housing/landlords/{id}', 'LandlordsController@show')->name('landlor
 Route::get('/housing/landlords/{id}/edit', 'LandlordsController@edit')->name('landlords.edit');
 Route::put('/housing/landlords/{id}', 'LandlordsController@update')->name('landlords.update');
 Route::delete('/housing/landlords/{id}', 'LandlordsController@destroy')->name('landlords.destroy');
+
+/** @courses */
+Route::get('/courses', 'CoursesController@index')->name('courses.index');

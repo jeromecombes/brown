@@ -32,7 +32,6 @@ class StudentsController extends Controller
     $students = $students->merge( User::where('semester2', session('semester'))->where('admin', 0)->get() );
 
     return view('students.index', compact('students'));
-
   }
 
   /**
