@@ -58,6 +58,23 @@ class StudentsController extends Controller
     $user->firstname = $request->firstname;
     $user->semester1 = $request->semester;
     $user->password = bcrypt('password');
+    $user->dob = preg_replace('/([0-9]*)\/([0-9]*)\/([0-9]*)/',"$3-$1-$2", $request->dob);
+    $user->place_of_birth = $request->place_of_birth;
+    $user->citizenship = $request->citizenship;
+    $user->email = $request->email;
+    $user->student_id = $request->student_id;
+    $user->concentration = $request->concentration;
+    $user->university = $request->university;
+    $user->host = $request->host;
+    $user->host_notes = $request->host_notes;
+    $user->status = $request->status;
+    $user->notes1 = $request->notes1;
+    $user->courses = $request->courses;
+    $user->deposit = $request->deposit;
+    $user->sa_approval = $request->sa_approval;
+    $user->leave = $request->leave;
+    $user->cf_registration = $request->cf_registration;
+    $user->notes2 = $request->notes2;
     $user->save();
 
     return redirect('students')->with('status', 'general.store_student_ok');;
@@ -85,6 +102,7 @@ class StudentsController extends Controller
   public function edit($id)
   {
     $student = User::find($id);
+    $student->dob = preg_replace('/([0-9]*)-([0-9]*)-([0-9]*)/',"$2/$3/$1", $student->dob);
     return view('students.form', compact("student"));
   }
 
@@ -103,7 +121,25 @@ class StudentsController extends Controller
     $user->name = $request->name;
     $user->firstname = $request->firstname;
     $user->semester1 = $request->semester;
+    $user->password = bcrypt('password');
     $user->student_id = $request->student_id;
+    $user->dob = preg_replace('/([0-9]*)\/([0-9]*)\/([0-9]*)/',"$3-$1-$2", $request->dob);
+    $user->place_of_birth = $request->place_of_birth;
+    $user->citizenship = $request->citizenship;
+    $user->email = $request->email;
+    $user->student_id = $request->student_id;
+    $user->concentration = $request->concentration;
+    $user->university = $request->university;
+    $user->host = $request->host;
+    $user->host_notes = $request->host_notes;
+    $user->status = $request->status;
+    $user->notes1 = $request->notes1;
+    $user->courses = $request->courses;
+    $user->deposit = $request->deposit;
+    $user->sa_approval = $request->sa_approval;
+    $user->leave = $request->leave;
+    $user->cf_registration = $request->cf_registration;
+    $user->notes2 = $request->notes2;
     $user->update();
 
     return redirect('students')->with('status', 'general.update_student_ok');

@@ -14,6 +14,7 @@
         <th> @lang('general.lastname') </th>
         <th> @lang('general.firstname') </th>
         <th> @lang('general.email') </th>
+        <th> @lang('general.university') </th>
         <th> @lang('general.student_id') </th>
       </tr>
     </thead>
@@ -52,6 +53,7 @@ $(function() {
             { data: 'name', name: 'name' },
             { data: 'firstname', name: 'firstname' },
             { data: 'email', name: 'email' },
+            { data: 'university', name: 'university' },
             { data: 'student_id', name: 'student_id' },
         ]
     });
